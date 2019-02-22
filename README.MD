@@ -8,7 +8,9 @@ Once installed, open ('./src/config/sequelize.js') and update the user informati
 run below commands in order
 
 `npm i`
+
 `npm run setup`
+
 `npm start`
 
 The backend server will be started at `http://localhost:4567`
