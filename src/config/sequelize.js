@@ -1,4 +1,4 @@
-import Sequelize from 'sequelize';
+const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
 
 const operatorsAliases = {
