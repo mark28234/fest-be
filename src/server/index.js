@@ -24,5 +24,7 @@ export default class Server {
     app.use('/api', routes);
 
     app.listen(port);
+
+    console.log(`Server is running @ http://localhost:${port}/api`);
   }
 }

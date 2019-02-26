@@ -44,4 +44,22 @@ export default class ProductController {
       })
       .catch((err) => next(err));
   }
+
+  static search(req, res, next) {
+    const query = req.body;
+    db.Product.findAll({
+      where: query,
+      include: { model: db.Category, as: 'category' }
+    })
+      .then((result) => {
+        if (result) {
+          res.status(200).send(result);
+        } else {
+          res
+            .status(400)
+            .send({ error: 'No product found with provided features' });
+        }
+      })
+      .catch((err) => next(err));
+  }
 }
