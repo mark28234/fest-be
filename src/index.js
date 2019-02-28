@@ -1,3 +1,3 @@
 import Server from './server';
-
-Server.init(4567);
+const port = process.env.PORT || 4567;
+Server.init(port);
