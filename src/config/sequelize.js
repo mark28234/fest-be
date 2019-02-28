@@ -42,7 +42,7 @@ module.exports = {
     username: 'fest',
     password: 'fest@2019',
     database: 'fest_prod',
-    host: '172.30.116.1',
+    host: process.env.MYSQL_IP,
     dialect: 'mysql',
     define: { timestamps: false }
   }
