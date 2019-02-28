@@ -42,7 +42,7 @@ module.exports = {
     username: 'fest',
     password: 'fest@2019',
     database: 'fest_prod',
-    host: '127.0.0.1',
+    host: '172.30.116.1',
     dialect: 'mysql',
     define: { timestamps: false }
   }
