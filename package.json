@@ -5,13 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel src --out-dir dist",
+    "build": "node_modules/.bin/babel src --out-dir dist",
     "db:drop": "node_modules/.bin/sequelize db:drop",
     "db:create": "node_modules/.bin/sequelize db:create",
     "db:migrate": "node_modules/.bin/sequelize db:migrate",
     "db:seed": "node_modules/.bin/sequelize db:seed:all",
     "setup": "npm run db:drop && npm run db:create && npm run db:migrate && npm run db:seed",
-    "start": "npm run build && node dist/index.js"
+    "start": "npm run setup && npm run build && node dist/index.js"
   },
   "keywords": [],
   "author": "Markandey Pathak <mpathak@deloitte.com> (http://markandey.online)",
@@ -21,9 +21,7 @@
     "express": "^4.16.4",
     "mysql2": "^1.6.5",
     "sequelize": "^4.42.0",
-    "sequelize-cli": "^5.4.0"
-  },
-  "devDependencies": {
+    "sequelize-cli": "^5.4.0",
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.3.3",
     "@babel/preset-env": "^7.3.1"

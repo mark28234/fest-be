@@ -39,8 +39,8 @@ module.exports = {
     define: { timestamps: false }
   },
   production: {
-    username: 'root',
-    password: 'root@123',
+    username: 'fest',
+    password: 'fest@2019',
     database: 'fest_prod',
     host: '127.0.0.1',
     dialect: 'mysql',

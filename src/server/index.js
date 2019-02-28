@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 import routes from './routes';
 
 export default class Server {
-  static init(port) {
+  static init(port, ip) {
     const app = new express();
 
     app.use((req, res, next) => {
@@ -23,8 +23,8 @@ export default class Server {
 
     app.use('/api', routes);
 
-    app.listen(port);
+    app.listen(port, ip);
 
-    console.log(`Server is running @ http://localhost:${port}/api`);
+    console.log(`Server is running @ ${ip}:${port}/api`);
   }
 }
