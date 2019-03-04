@@ -53,7 +53,7 @@ function () {
           userId = _req$body.userId,
           productId = _req$body.productId,
           quantity = _req$body.quantity;
-      var query = "INSERT INTO CARTITEM (userId, productId, quantity) VALUES (?, ?, ?)";
+      var query = "INSERT INTO CartItem (userId, productId, quantity) VALUES (?, ?, ?)";
 
       _db.default.sequelize.query(query, {
         replacements: [userId, productId, quantity]
