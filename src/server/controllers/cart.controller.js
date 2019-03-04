@@ -26,7 +26,7 @@ export default class CartController {
   }
   static addItem(req, res, next) {
     const { userId, productId, quantity } = req.body;
-    let query = `INSERT INTO CARTITEM (userId, productId, quantity) VALUES (?, ?, ?)`;
+    let query = `INSERT INTO CartItem (userId, productId, quantity) VALUES (?, ?, ?)`;
     db.sequelize
       .query(query, { replacements: [userId, productId, quantity] })
       .then((result) => {
