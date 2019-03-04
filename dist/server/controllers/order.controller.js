@@ -60,7 +60,7 @@ function () {
           userId = _req$body.userId,
           statusId = _req$body.statusId,
           items = _req$body.items;
-      var addOrderQuery = "INSERT INTO `ORDER` (userId, statusId, date) VALUES (?, ?, ?)";
+      var addOrderQuery = "INSERT INTO `Order` (userId, statusId, date) VALUES (?, ?, ?)";
 
       _db.default.sequelize.transaction().then(function (transaction) {
         _db.default.sequelize.query(addOrderQuery, {
@@ -70,7 +70,7 @@ function () {
 
           if (result) {
             items.forEach(function (item) {
-              var addOrderItemQuery = "INSERT INTO ORDERITEM (orderId, productId, quantity) VALUES (?, ?, ?)";
+              var addOrderItemQuery = "INSERT INTO OrderItem (orderId, productId, quantity) VALUES (?, ?, ?)";
 
               _db.default.sequelize.query(addOrderItemQuery, {
                 replacements: [result[0], item.productId, item.quantity]

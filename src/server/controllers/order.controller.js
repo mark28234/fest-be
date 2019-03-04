@@ -35,7 +35,7 @@ export default class OrderController {
 
   static addItem(req, res, next) {
     const { userId, statusId, items } = req.body;
-    let addOrderQuery = `INSERT INTO \`ORDER\` (userId, statusId, date) VALUES (?, ?, ?)`;
+    let addOrderQuery = `INSERT INTO \`Order\` (userId, statusId, date) VALUES (?, ?, ?)`;
     db.sequelize.transaction().then((transaction) => {
       db.sequelize
         .query(addOrderQuery, { replacements: [userId, statusId, new Date()] })
@@ -43,7 +43,7 @@ export default class OrderController {
           console.log(result);
           if (result) {
             items.forEach((item) => {
-              let addOrderItemQuery = `INSERT INTO ORDERITEM (orderId, productId, quantity) VALUES (?, ?, ?)`;
+              let addOrderItemQuery = `INSERT INTO OrderItem (orderId, productId, quantity) VALUES (?, ?, ?)`;
               db.sequelize
                 .query(addOrderItemQuery, {
                   replacements: [result[0], item.productId, item.quantity]
