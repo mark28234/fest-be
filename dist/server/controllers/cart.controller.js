@@ -69,6 +69,28 @@ function () {
         return next(err);
       });
     }
+  }, {
+    key: "removeItem",
+    value: function removeItem(req, res, next) {
+      var _req$body2 = req.body,
+          userId = _req$body2.userId,
+          productId = _req$body2.productId;
+      var query = "DELETE FROM CartItem WHERE userId = ? AND productId = ?";
+
+      _db.default.sequelize.query(query, {
+        replacements: [userId, productId]
+      }).then(function (result) {
+        if (result) {
+          res.status(201).send(true);
+        } else {
+          res.status(400).send({
+            error: 'Unable to remove item from cart'
+          });
+        }
+      }).catch(function (err) {
+        return next(err);
+      });
+    }
   }]);
 
   return CartController;

@@ -15,5 +15,6 @@ var cartRoute = _express.default.Router();
 
 cartRoute.get('/:id', _cart.default.getCart);
 cartRoute.post('/', _cart.default.addItem);
+cartRoute.delete('/', _cart.default.removeItem);
 var _default = cartRoute;
 exports.default = _default;

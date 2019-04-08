@@ -38,4 +38,18 @@ export default class CartController {
       })
       .catch((err) => next(err));
   }
+  static removeItem(req, res, next) {
+    const { userId, productId } = req.body;
+    let query = `DELETE FROM CartItem WHERE userId = ? AND productId = ?`;
+    db.sequelize
+      .query(query, { replacements: [userId, productId] })
+      .then((result) => {
+        if (result) {
+          res.status(201).send(true);
+        } else {
+          res.status(400).send({ error: 'Unable to remove item from cart' });
+        }
+      })
+      .catch((err) => next(err));
+  }
 }
