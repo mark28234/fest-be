@@ -17,6 +17,8 @@ var _order = _interopRequireDefault(require("./order.route"));
 
 var _category = _interopRequireDefault(require("./category.route"));
 
+var _repo = _interopRequireDefault(require("./repo.route"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var router = _express.default.Router();
@@ -26,5 +28,6 @@ router.use('/product', _product.default);
 router.use('/cart', _cart.default);
 router.use('/order', _order.default);
 router.use('/category', _category.default);
+router.use('/repo', _repo.default);
 var _default = router;
 exports.default = _default;

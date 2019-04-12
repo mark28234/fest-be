@@ -4,16 +4,24 @@ module.exports = {
   up: function up(queryInterface, Sequelize) {
     return queryInterface.bulkInsert('User', [{
       name: 'Monster Man',
-      profileImageUrl: 'https://www.gravatar.com/avatar/00000000000000000000000000000000?d=monsterid&f=y'
+      userName: 'monsterman',
+      profileImageUrl: 'https://www.gravatar.com/avatar/00000000000000000000000000000000?d=monsterid&f=y',
+      password: 'P@$$w0rd'
     }, {
       name: 'Wavatar',
-      profileImageUrl: 'https://www.gravatar.com/avatar/00000000000000000000000000000000?d=wavatar&f=y'
+      userName: 'wavatar',
+      profileImageUrl: 'https://www.gravatar.com/avatar/00000000000000000000000000000000?d=wavatar&f=y',
+      password: 'P@$$w0rd'
     }, {
       name: 'Retro',
-      profileImageUrl: 'https://www.gravatar.com/avatar/00000000000000000000000000000000?d=retro&f=y'
+      userName: 'retro',
+      profileImageUrl: 'https://www.gravatar.com/avatar/00000000000000000000000000000000?d=retro&f=y',
+      password: 'P@$$w0rd'
     }, {
       name: 'Robo Hash',
-      profileImageUrl: 'https://www.gravatar.com/avatar/00000000000000000000000000000000?d=robohash&f=y'
+      userName: 'robohash',
+      profileImageUrl: 'https://www.gravatar.com/avatar/00000000000000000000000000000000?d=robohash&f=y',
+      password: 'P@$$w0rd'
     }], {});
   },
   down: function down(queryInterface, Sequelize) {

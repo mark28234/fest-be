@@ -1,6 +1,6 @@
 export default function(sequelize, DataTypes) {
-  const User = sequelize.define(
-    'User',
+  const Repo = sequelize.define(
+    'Repo',
     {
       id: {
         type: DataTypes.INTEGER(11),
@@ -8,27 +8,36 @@ export default function(sequelize, DataTypes) {
         primaryKey: true,
         autoIncrement: true
       },
+      repoId: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
       name: {
-        type: DataTypes.STRING(45),
+        type: DataTypes.STRING,
         allowNull: false
       },
-      userName: {
-        type: DataTypes.STRING(45),
-        allowNull: false
-      },
-      profileImageUrl: {
+      desc: {
         type: DataTypes.TEXT,
         allowNull: true
       },
-      password: {
+      url: {
         type: DataTypes.STRING,
         allowNull: false
+      },
+      found: {
+        type: DataTypes.INTEGER(4),
+        allowNull: false,
+        defaultValue: '1'
+      },
+      tags: {
+        type: DataTypes.STRING,
+        allowNull: true
       }
     },
     {
-      tableName: 'User'
+      tableName: 'Repo'
     }
   );
 
-  return User;
+  return Repo;
 }

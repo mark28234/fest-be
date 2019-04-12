@@ -15,17 +15,17 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-var UserController =
+var RepoController =
 /*#__PURE__*/
 function () {
-  function UserController() {
-    _classCallCheck(this, UserController);
+  function RepoController() {
+    _classCallCheck(this, RepoController);
   }
 
-  _createClass(UserController, null, [{
-    key: "getUser",
-    value: function getUser(req, res, next) {
-      _db.default.User.findOne({
+  _createClass(RepoController, null, [{
+    key: "getRepo",
+    value: function getRepo(req, res, next) {
+      _db.default.Repo.findOne({
         where: {
           id: req.params.id
         }
@@ -34,7 +34,7 @@ function () {
           res.status(200).send(result.dataValues);
         } else {
           res.status(400).send({
-            error: 'No user found with provided id'
+            error: 'No repo found with provided id'
           });
         }
       }).catch(function (err) {
@@ -42,21 +42,39 @@ function () {
       });
     }
   }, {
-    key: "authenticateUser",
-    value: function authenticateUser(req, res, next) {
-      var credentials = {
-        userName: req.params.userName,
-        password: req.params.password
-      };
+    key: "getRepos",
+    value: function getRepos(req, res, next) {
+      _db.default.Repo.findAll().then(function (result) {
+        if (result) {
+          res.status(200).send(result);
+        } else {
+          res.status(200).send([]);
+        }
+      }).catch(function (err) {
+        return next(err);
+      });
+    }
+  }, {
+    key: "updateRepo",
+    value: function updateRepo(req, res, next) {
+      var repo = req.body;
 
-      _db.default.User.findOne({
-        where: credentials
+      _db.default.Repo.findOne({
+        where: {
+          id: repo.id
+        }
       }).then(function (result) {
         if (result) {
-          res.status(200).send(result.dataValues);
+          result.update(repo).then(function () {
+            res.status(201).send(repo);
+          }).catch(function (err) {
+            return res.status(500).send({
+              error: 'Unable to update the repo details.\n' + err
+            });
+          });
         } else {
-          res.status(401).send({
-            error: 'Invalid User or Password'
+          res.status(400).send({
+            error: 'No repo found with provided id'
           });
         }
       }).catch(function (err) {
@@ -65,7 +83,7 @@ function () {
     }
   }]);
 
-  return UserController;
+  return RepoController;
 }();
 
-exports.default = UserController;
+exports.default = RepoController;

@@ -23,7 +23,7 @@ const operatorsAliases = {
 module.exports = {
   development: {
     username: 'root',
-    password: 'root@123',
+    password: 'R!ck&K@t3',
     database: 'fest_dev',
     host: '127.0.0.1',
     dialect: 'mysql',
