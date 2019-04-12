@@ -39,7 +39,8 @@ function _default(sequelize, DataTypes) {
       allowNull: true
     }
   }, {
-    tableName: 'Repo'
+    tableName: 'Repo',
+    charset: 'utf8mb4'
   });
   return Repo;
 }

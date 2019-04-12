@@ -11,7 +11,7 @@ module.exports = {
           primaryKey: true,
           autoIncrement: true
         },
-        repoId:{
+        repoId: {
           type: Sequelize.STRING,
           allowNull: false
         },
@@ -38,7 +38,8 @@ module.exports = {
         }
       },
       {
-        tableName: 'Repo'
+        tableName: 'Repo',
+        charset: 'utf8mb4'
       }
     );
   },

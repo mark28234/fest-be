@@ -35,7 +35,8 @@ module.exports = {
         allowNull: true
       }
     }, {
-      tableName: 'Repo'
+      tableName: 'Repo',
+      charset: 'utf8mb4'
     });
   },
   down: function down(queryInterface, Sequelize) {

@@ -35,7 +35,8 @@ export default function(sequelize, DataTypes) {
       }
     },
     {
-      tableName: 'Repo'
+      tableName: 'Repo',
+      charset: 'utf8mb4'
     }
   );
 
